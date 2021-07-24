@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Inventory {
+    + main()
+    + start()
+}
+
+class InventoryController {
+    - Add new items to list
+    - Remove items from list
+    - Edit items from list
+    - Sort items
+    - Save/Load Files
+
+    + initialize()
+    + addItem()
+    + removeItem()
+    + editItem()
+    + saveList()
+    + loadList()
+    + searchSerial()
+    + searchName()
+}
+
+
+javafx.Application  <|-- Inventory
+Inventory - InventoryController
+
+@enduml
