@@ -1,0 +1,6 @@
+ucf/assignments/Inventory.java
+ ucf.assignments.Inventory
+ucf/assignments/InventoryController.java
+ ucf.assignments.InventoryController
+ucf/assignments/Item.java
+ ucf.assignments.Item
