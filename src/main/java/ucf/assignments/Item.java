@@ -1,6 +1,5 @@
 package ucf.assignments;
 
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Item {
@@ -15,15 +14,16 @@ public class Item {
 
     }
 
-    public SimpleStringProperty getValueProperty() {
-        return valueProperty;
+    public String getValueProperty() {
+        return valueProperty.get();
     }
 
-    public SimpleStringProperty getSerialProperty() {
-        return serialProperty;
+    public String getSerialProperty() {
+        return serialProperty.get();
     }
 
-    public SimpleStringProperty getNameProperty() {
-        return nameProperty;
+    public String getNameProperty() {
+        return nameProperty.get();
     }
+
 }

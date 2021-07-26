@@ -23,8 +23,20 @@ class InventoryController {
     + searchName()
 }
 
+class Item {
+    - Group up item properties
+    - Get values from selected item
+
+    + getValueProperty()
+    + getSerialProperty()
+    + getNameProperty()
+
+}
+
+
 
 javafx.Application  <|-- Inventory
 Inventory - InventoryController
+InventoryController -- Item
 
 @enduml

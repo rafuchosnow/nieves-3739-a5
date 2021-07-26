@@ -66,33 +66,18 @@
                   <Font size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="descriptionField33" layoutX="24.0" layoutY="84.0" prefHeight="30.0" prefWidth="185.0" promptText="Search by serial...">
+            <TextField fx:id="serialSearch" layoutX="24.0" layoutY="84.0" prefHeight="30.0" prefWidth="339.0" promptText="Search by serial or by name...">
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="descriptionField331" layoutX="343.0" layoutY="84.0" prefHeight="30.0" prefWidth="185.0" promptText="Search by name">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </TextField>
-            <Button fx:id="serialButton" layoutX="217.0" layoutY="84.0" mnemonicParsing="false" onAction="#searchSerial" text="Search">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="nameButton" layoutX="537.0" layoutY="84.0" mnemonicParsing="false" onAction="#searchName" text="Search">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
          </children>
       </AnchorPane>
-      <TableView fx:id="itemTable" fixedCellSize="35.0" prefHeight="129.0" prefWidth="598.0" SplitPane.resizableWithParent="false">
+      <TableView fx:id="itemTable" editable="true" fixedCellSize="26.0" prefHeight="129.0" prefWidth="598.0" SplitPane.resizableWithParent="false">
         <columns>
-          <TableColumn fx:id="valueCol" editable="false" prefWidth="141.0" resizable="false" text="Value" />
-          <TableColumn fx:id="serialCol" prefWidth="163.0" resizable="false" text="Serial Number" />
-            <TableColumn fx:id="nameCol" prefWidth="282.0" resizable="false" text="Name" />
+          <TableColumn fx:id="valueCol" prefWidth="121.0" resizable="false" sortable="false" text="Value" />
+          <TableColumn fx:id="serialCol" prefWidth="237.0" resizable="false" text="Serial Number" />
+            <TableColumn fx:id="nameCol" prefWidth="228.0" resizable="false" text="Name" />
         </columns>
       </TableView>
   </items>

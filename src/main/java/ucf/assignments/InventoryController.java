@@ -11,12 +11,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TreeItem;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
-import java.time.LocalDate;
+import java.io.IOException;
+
 
 public class InventoryController {
 
@@ -29,45 +34,84 @@ public class InventoryController {
     @FXML
     TableView<Item> itemTable;
     @FXML
-    TableColumn<Item,String> valueCol;
+    TableColumn<Item, String> valueCol;
     @FXML
-    TableColumn<Item,String> serialCol;
+    TableColumn<Item, String> serialCol;
     @FXML
-    TableColumn<Item,String> nameCol;
-
+    TableColumn<Item, String> nameCol;
     ObservableList<Item> itemList = FXCollections.observableArrayList();
-
     @FXML
-    public void initialize(){
-        //Initialize tableview
+    Button BackButton;
+
+    public void initialize() {
+        //Initialize tableview and columns
+
+        valueCol.setCellValueFactory(new PropertyValueFactory<>("valueProperty"));
+        serialCol.setCellValueFactory(new PropertyValueFactory<>("serialProperty"));
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("nameProperty"));
+
         itemTable.setItems(itemList);
     }
 
     @FXML
-    public void addItem(ActionEvent actionEvent) {
+    public void addItem(ActionEvent actionEvent) throws IOException {
         //Prompt the user type in list item properties
-        itemTable.setItems(itemList);
 
-        Item newItem = new Item(valueField.getText(), serialField.getText(), nameField.getText());
-        itemList.add(newItem);
+        Item newItem = new Item("$" + valueField.getText(), serialField.getText(), nameField.getText());
 
-        //Add item to the list
-        //Reset description fields
+        //Filter out wrong inputs
 
-        valueField.setText("");
-        serialField.setText("");
-        nameField.setText("");
+        if(nameField.getText().length() >= 2 || nameField.getText().length() <= 256){
+            if(serialField.getText().length() == 10) {
 
-        itemTable.refresh();
+                itemList.add(newItem);
+
+                //Add item to the list
+                //Reset description fields
+
+                valueField.setText("");
+                serialField.setText("");
+                nameField.setText("");
+
+                itemTable.refresh();
+            }
+            else {
+                nameField.setText("Between 2 and 256 characters");
+                serialField.setText("Use format XXXXXXXXXX");
+            }
+        }
+        else {
+            nameField.setText("Between 2 and 256 characters");
+            serialField.setText("Use format XXXXXXXXXX");
+        }
+
+
     }
 
     public void removeItem(ActionEvent actionEvent) {
+        //Select item you want to remove
+        //Remove item from list and table
+
+        itemList.remove(itemTable.getSelectionModel().getSelectedItem());
+        itemTable.refresh();
     }
 
     public void editItem(ActionEvent actionEvent) {
+        //Select item to edit
+        //Populate fields
+
+        valueField.setText(itemTable.getSelectionModel().getSelectedItem().getValueProperty());
+        serialField.setText(itemTable.getSelectionModel().getSelectedItem().getSerialProperty());
+        nameField.setText(itemTable.getSelectionModel().getSelectedItem().getNameProperty());
+
+        //Remove old item from list
+
+        itemList.remove(itemTable.getSelectionModel().getSelectedItem());
+        itemTable.refresh();
     }
 
     public void loadList(ActionEvent actionEvent) {
+
     }
 
     public void saveTSV(ActionEvent actionEvent) {
@@ -79,9 +123,5 @@ public class InventoryController {
     public void saveJSON(ActionEvent actionEvent) {
     }
 
-    public void searchSerial(ActionEvent actionEvent) {
-    }
 
-    public void searchName(ActionEvent actionEvent) {
-    }
 }
