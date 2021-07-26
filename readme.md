@@ -11,6 +11,9 @@ Welcome to my inventory app ༼ つ ◕_◕ ༽つ
   
 - To sort the inventory you can click the top of the Serial column, 
   or the top of the name column (you can sort in ascending or descending format).
+  
+- To search across serial number and item name just type what you are search in the 
+  search bar beneath the buttons.
 
 - To save your inventory to an external storage select the File...
   button and click on the type you want to save your file as, 

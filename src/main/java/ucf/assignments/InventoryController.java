@@ -17,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 
+import javax.swing.*;
 import java.io.IOException;
 
 
@@ -135,6 +136,12 @@ public class InventoryController {
         //Create JSON file
         //Add to list item by item
         //Type in path for saving
+    }
+
+    public void filteredSearch(ActionEvent actionEvent) {
+        //Type words to search on the bar
+        //Filter inventory list
+        //Show filtered results
     }
 
 
