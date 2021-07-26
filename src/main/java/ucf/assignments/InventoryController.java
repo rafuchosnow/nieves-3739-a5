@@ -113,16 +113,28 @@ public class InventoryController {
     }
 
     public void loadList(ActionEvent actionEvent) {
+        //Have user type path for loading
+        //Load file into inventory
 
     }
 
     public void saveTSV(ActionEvent actionEvent) {
+        //Create text file
+        //Add to list item by item separated by tabs
+        //Type in path for saving
+
     }
 
     public void saveHTML(ActionEvent actionEvent) {
+        //Create HTML file
+        //Add to list item by item
+        //Type in path for saving
     }
 
     public void saveJSON(ActionEvent actionEvent) {
+        //Create JSON file
+        //Add to list item by item
+        //Type in path for saving
     }
 
 

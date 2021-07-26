@@ -9,8 +9,6 @@ package ucf.assignments;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.scene.control.TextField;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -20,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class InventoryControllerTest {
 
     @Test
-    void addItem() throws IOException {
+    void addItemName() throws IOException {
         
         InventoryController IC = new InventoryController();
         ObservableList<Item> itemList = FXCollections.observableArrayList();
@@ -32,10 +30,27 @@ class InventoryControllerTest {
     }
 
     @Test
-    void removeItem() {
+    void addItemSerial() throws IOException {
+
+        InventoryController IC = new InventoryController();
+        ObservableList<Item> itemList = FXCollections.observableArrayList();
+
+        IC.addText(itemList,"300.00", "123ABC456X","Nintendo Switch");
+
+        assertEquals("123ABC456X", itemList.get(0).getSerialProperty());
+
     }
 
     @Test
-    void editItem() {
+    void addItemValue() throws IOException {
+
+        InventoryController IC = new InventoryController();
+        ObservableList<Item> itemList = FXCollections.observableArrayList();
+
+        IC.addText(itemList,"300.00", "123ABC456X","Nintendo Switch");
+
+        assertEquals("$300.00", itemList.get(0).getValueProperty());
+
     }
+
 }

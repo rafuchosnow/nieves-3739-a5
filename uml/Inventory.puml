@@ -15,6 +15,7 @@ class InventoryController {
 
     + initialize()
     + addItem()
+    + addText()
     + removeItem()
     + editItem()
     + saveList()
@@ -22,6 +23,15 @@ class InventoryController {
     + searchSerial()
     + searchName()
 }
+
+class InventoryControllerTest {
+    - Test functions from controller class
+
+    + addItemName()
+    + addItemSerial()
+    + addItemValue()
+}
+
 
 class Item {
     - Group up item properties
@@ -38,5 +48,5 @@ class Item {
 javafx.Application  <|-- Inventory
 Inventory - InventoryController
 InventoryController -- Item
-
+InventoryController -- InventoryControllerTest
 @enduml
